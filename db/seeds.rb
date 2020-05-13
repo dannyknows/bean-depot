@@ -64,6 +64,7 @@ producers.each do |producer|
     grind = rand(0..3)
     Product.create(
       name: Faker::Coffee.blend_name,
+      description: Faker::Coffee.notes,
       price: num, 
       producer_id: producer.id, 
       origin_id: 2, 
