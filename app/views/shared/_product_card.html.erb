@@ -1,0 +1,16 @@
+<div class = "card">
+  <div>
+  [.....................]</br>
+  [.....................]</br>
+  [image goes here]</br>
+  [.....................]</br>
+  [.....................]</br>
+  </div>
+  <div>
+    <%= product.name %>
+    <%= product.origin.country %>
+    <%= number_to_currency(product.price/100) %>
+    <%= product.producer.company_name %>
+    <%= product.description %>
+  </div>
+</div>

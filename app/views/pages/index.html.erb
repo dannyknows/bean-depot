@@ -1,0 +1,14 @@
+<%= render 'shared/nav' %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div class="container">
+
+  <div>sort by: *insert dropdown*</div>
+  <div>filter *button*</div>
+
+  <% @products.each do |product| %>
+    <%= render 'shared/product_card', product: product %>
+  <% end %>
+  
+</div>
