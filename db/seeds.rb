@@ -56,9 +56,7 @@ end
 
 p 'producers created 🚜'
 
-producers = Producer.all
-
-producers.each do |producer|
+Producer.all.each do |producer|
   2.times do 
     num = rand(1000..50000)
     grind = rand(0..3)
@@ -75,6 +73,22 @@ producers.each do |producer|
 end
 
 p 'products created 🥜'
+
+User.all.each do |user|
+  cart = Cart.create(
+    user_id: user.id
+  )
+  products = Product.all
+  4.times do
+    rand_index = rand(0..(products.length-1))
+    CartProduct.create(
+      cart_id: cart.id,
+      product_id: products[rand_index].id
+    )
+  end
+end
+
+p 'user carts created 🛒'
 
 p 'seeding complete 🌴'
 
