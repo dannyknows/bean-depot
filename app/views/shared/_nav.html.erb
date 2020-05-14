@@ -1,10 +1,11 @@
 <nav style= "display: flex; justify-content: space-between; border-bottom: 1px black solid;">
-  <H1>bean depot</H1>
+  <H1><%= link_to 'bean depot', root_path%></H1>
   <%# <%= link_to 'profile', :profile_path %>
-  <h1>welceom to bena depat</h1>
+  <h1><%= page_name %></h1>
   <div>
     <span>search</span>
-    <span>cart</span>
+    <span><%= link_to 'cart', cart_path %></span>
     <span>profile</span>
   </div>
 </nav>
+<%= link_to "Back", :back %>
