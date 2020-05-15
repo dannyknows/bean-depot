@@ -4,8 +4,14 @@
   <h1><%= page_name %></h1>
   <div>
     <span>search</span>
+    <span><%= link_to 'collection', root_path %></span>
     <span><%= link_to 'cart', cart_path %></span>
-    <span>profile</span>
+      <% if user_signed_in? %>
+        <span><%= link_to 'profile', profile_path %></span>
+        <span><%= link_to 'logout',  destroy_user_session_path, :method => :delete %></span>
+      <% else %>
+         <span><%= link_to 'login', new_user_session_path %></span>
+      <% end %>
   </div>
 </nav>
 <%= link_to "Back", :back %>

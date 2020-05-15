@@ -1,6 +1,13 @@
+<% if @current_user != nil %>
+  <% p @current_user %>
+  <% user_name = ", #{@current_user.fname}" %>
+<% end %>
+
 <%= render 'shared/nav', page_name: 'cart' %>
-<h1>Helocome to your cart, <%= @current_user.fname %></h1>
-</h2>
+
+<h1>Helocome to your cart<%= user_name %></h1>
+
 <% @current_cart.each do |cart|%>
   <%= render 'shared/product_card', product: cart.product %>
 <% end %>
+

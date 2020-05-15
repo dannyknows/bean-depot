@@ -1,14 +1,27 @@
 class PagesController < ApplicationController
+  # before_action :current_user
+  before_action :authenticate_user!, only: [:profile]
+
   def index
     @products = Product.all
-    p params
   end
+
   def cart
-    @current_user = User.find_by(id: 7)
-    cart = Cart.find_by(user_id: @current_user.id)
-    @current_cart = cart.cart_products
+    if user_signed_in?
+      cart = Cart.find_by(user_id: current_user.id)
+      @current_cart = cart.cart_products
+    else 
+       @current_cart = nil
+    end
   end
+
   def showcase
     @product = Product.find_by(id: params[:id])
   end
+
+  def profile
+  end
+
+  private 
+  
 end
