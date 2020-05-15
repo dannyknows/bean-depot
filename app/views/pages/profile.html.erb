@@ -4,7 +4,6 @@
   <h2>my orders</h2>  
   <h2>my details</h2>  
   <h2>cart</h2>
-    <% p current_user.isProducer? %>
   <% if current_user.isProducer? %>
     <%= render 'profile/producer' %>
   <% end %>
