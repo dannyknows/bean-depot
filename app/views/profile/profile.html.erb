@@ -1,13 +1,5 @@
 <%= render 'shared/nav', page_name: "#{current_user.fname}" %>
+<%= render 'shared/profile_nav'%>
 
-<nav style= "display: flex; justify-content: space-around; border-bottom: 1px black solid;">
-  <h2>my orders</h2>  
-  <h2>my details</h2>  
-  <h2>cart</h2>
-  <% if current_user.isProducer? %>
-    <%= render 'producer' %>
-  <% end %>
-  <% if current_user.isAdmin? %>
-    <%= render 'admin' %>
-  <% end %>
-</nav >
+<p>your detials are *email*</p>
+<p>chnage password</p>
