@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   get '/cart', to: 'pages#cart'
   get '/showcase/:id', to: 'pages#showcase', as: 'showcase'
   get '/profile', to: 'profile#profile', as: 'profile'
-  get '/profile/my-details', to: 'profile#user_details', as: 'user_details'
+  get '/profile/product-listings', to:'profile#listings', as: 'listings'
+  get '/profile/company-details', to:'profile#company_details', as: 'company_details'
+  get '/profile/previous-orders', to:'profile#prev_orders', as: 'prev_orders'
+  get '/profile/admin', to:'profile#admin', as: 'admin'
+  
 end
