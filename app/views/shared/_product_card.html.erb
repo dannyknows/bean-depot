@@ -1,17 +1,19 @@
-<div class = "card" style= 'border: solid 1px black;'>
-  <%= link_to "#{product.name}", showcase_path(product.id)%>
-  <div>
-  [.....................]</br>
-  [.....................]</br>
-  [image goes here]</br>
-  [.....................]</br>
-  [.....................]</br>
-  </div>
-  <div>
-    <%= product.name %>
-    <%= product.origin.country %>
-    <%= product.display_price %>
-    <%= product.producer.company_name %>
-    <%= product.description %>
-  </div>
+<div>
+[.....................]</br>
+[.....................]</br>
+[image goes here]</br>
+[.....................]</br>
+[.....................]</br>
+</div>
+<div>
+  <%= product.name %>
+  <%= product.origin.country %>
+  <%= product.display_price %>
+  <%= product.producer.company_name %>
+  <%= product.description %>
+  <% if page == 'cart' %>
+    <%= button_to "remove from cart", remove_product_path(product_id: product.id), method: :delete %> 
+  <% else %>
+    <%= button_to "Add to cart", add_product_path(product_id: product.id)  %>
+  <% end %>
 </div>

@@ -8,7 +8,10 @@
   <div>filter *button*</div>
 
   <% @products.each do |product| %>
-    <%= render 'shared/product_card', product: product%>
+    <div class = "card" style= 'border: solid 1px black;'>
+      <%= link_to "#{product.name}", showcase_path(product.id)%>
+      <%= render 'shared/product_card', product: product, page: 'home' %>
+    </div>
   <% end %>
 
 </div>

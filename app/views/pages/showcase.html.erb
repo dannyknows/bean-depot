@@ -1,17 +1,3 @@
 <%= render 'shared/nav', page_name: @product.name %>
-
-<h1>show case</h1>
- <div>
-  [.....................]</br>
-  [.....................]</br>
-  [image goes here]</br>
-  [.....................]</br>
-  [.....................]</br>
-  </div>
-<div>
-    <%= @product.name %>
-    <%= @product.origin.country %>
-    <%= @product.display_price %>
-    <%= @product.producer.company_name %>
-    <%= @product.description %>
-  </div>
+<h1><%= @product.name %></h1>
+<%= render 'shared/product_card', product: @product, page: 'showcase'%>
