@@ -8,6 +8,7 @@
 <h1>Helocome to your cart<%= user_name %></h1>
 
 <% @current_cart.each do |cart|%>
-  <%= render 'shared/product_card', product: cart.product %>
+  <%= link_to "#{cart.product.name}", showcase_path(cart.product.id)%>
+  <%= render 'shared/product_card', product: cart.product, page: 'cart' %>
 <% end %>
 
