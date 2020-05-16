@@ -6,9 +6,15 @@ Rails.application.routes.draw do
     delete 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+      #root routes
   root to: 'pages#index'
-  get '/cart', to: 'pages#cart'
   get '/showcase/:id', to: 'pages#showcase', as: 'showcase'
+
+      #cart controller routing
+  get '/cart', to: 'cart#cart'
+  post '/cart', to: 'cart#add_product', as: 'add_product'
+  delete '/cart', to: 'cart#remove_product', as: 'remove_product'
+      #profile controller routing
   get '/profile', to: 'profile#profile', as: 'profile'
   get '/profile/product-listings', to:'profile#listings', as: 'listings'
   get '/profile/company-details', to:'profile#company_details', as: 'company_details'
