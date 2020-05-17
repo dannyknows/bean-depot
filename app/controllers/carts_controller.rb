@@ -1,4 +1,4 @@
-class CartController < ApplicationController
+class CartsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_cart
   before_action :find_product
@@ -16,14 +16,9 @@ class CartController < ApplicationController
   end
 
   def remove_product
-    #TODO - REMOVE
-    puts '*' * 30
-    puts ' ' 
-    print 'DEBUG: '
-    pp @cart.cart_products.find_by(product_id: @product)
-    puts ' ' 
-    puts '*' * 30
-    #TODO - REMOVE
+    product = @cart.cart_products.find_by(product_id: @product) 
+    CartProduct.delete(product.id)
+    redirect_to cart_path
   end
 
   private 

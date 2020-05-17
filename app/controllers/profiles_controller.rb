@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   before_action :authenticate_user!
   
   def profile
@@ -6,10 +6,8 @@ class ProfileController < ApplicationController
   end
 
   def company_details
-
+    
   end
 
-  def listings
-
-  end
+  
 end
