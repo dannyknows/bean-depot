@@ -1,0 +1,24 @@
+<%= form_with model: product, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+
+  <%= label_tag(:isDecaf, "decaf") %>
+  <%= check_box_tag(:isDecaf) %>
+
+  <%= label_tag(:origin_id, "origin") %>
+  <%= form.select(:origin_id, [['ASIA', 1], ['AFRICA', 2], ['SOUTH AMERICA', 3], ['CENTRAL AMERICA', 4]]) %>
+
+  <%= label_tag(:grind_type, "grind type") %>
+  <%= form.select(:grind_type, [['AEROPRESS', 0], ['COLD BREW', 1], ['ESPRESSO', 2], ['PLUNGER', 3]]) %>
+
+  <%= form.label :picture %> 
+  <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+
+  <%= form.submit %>
+<% end %>

@@ -11,9 +11,13 @@
   <%= product.display_price %>
   <%= product.producer.company_name %>
   <%= product.description %>
-  <% if page == 'cart' %>
-    <%= button_to "remove from cart", remove_product_path(product_id: product.id), method: :delete %> 
-  <% else %>
-    <%= button_to "Add to cart", add_product_path(product_id: product.id)  %>
+
+  <% if page == 'home/show' %>
+    <%= button_to "Add to cart", add_to_cart_path(product_id: product.id)  %>
+    
+  <% elsif page == 'cart' %>
+    <%= button_to "remove from cart", remove_from_cart_path(product_id: product.id), method: :delete %> 
+
+  <% else page == 'producer' %>
+    <%= link_to "edit product listing", edit_product_path(id: product.id)%>  
   <% end %>
-</div>

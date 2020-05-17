@@ -10,7 +10,7 @@
   <% @products.each do |product| %>
     <div class = "card" style= 'border: solid 1px black;'>
       <%= link_to "#{product.name}", showcase_path(product.id)%>
-      <%= render 'shared/product_card', product: product, page: 'home' %>
+      <%= render 'shared/product_card', product: product, page: 'home/show' %>
     </div>
   <% end %>
 
