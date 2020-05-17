@@ -10,15 +10,19 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   get '/showcase/:id', to: 'pages#showcase', as: 'showcase'
 
+      #product controller routing 
+  get '/products/listings', to:'products#listings', as: 'listings'
+  resources :products
+
       #cart controller routing
-  get '/cart', to: 'cart#cart'
-  post '/cart', to: 'cart#add_product', as: 'add_product'
-  delete '/cart', to: 'cart#remove_product', as: 'remove_product'
+  get '/cart', to: 'carts#cart'
+  post '/cart', to: 'carts#add_product', as: 'add_to_cart'
+  delete '/cart', to: 'carts#remove_product', as: 'remove_from_cart'
+
       #profile controller routing
-  get '/profile', to: 'profile#profile', as: 'profile'
-  get '/profile/product-listings', to:'profile#listings', as: 'listings'
-  get '/profile/company-details', to:'profile#company_details', as: 'company_details'
-  get '/profile/previous-orders', to:'profile#prev_orders', as: 'prev_orders'
-  get '/profile/admin', to:'profile#admin', as: 'admin'
+  get '/profile', to: 'profiles#profile', as: 'profile'
+  get '/profile/company-details', to:'profiles#company_details', as: 'company_details'
+  get '/profile/previous-orders', to:'profiles#prev_orders', as: 'prev_orders'
+  get '/profile/admin', to:'profiles#admin', as: 'admin'
   
 end
