@@ -5,6 +5,11 @@ class CartsController < ApplicationController
 
   def cart
     @current_cart = @cart.cart_products
+    @cart_total =  0
+    @current_cart.each do |p|
+      @cart_total += p.product.price 
+    end 
+    @cart_total
   end
 
   def add_product
@@ -13,6 +18,7 @@ class CartsController < ApplicationController
     product_id: params[:product_id]
     )
     flash[:success] = "added to cart 🛒"
+    redirect_to request.referer
   end
 
   def remove_product
