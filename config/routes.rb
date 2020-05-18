@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/showcase/:id', to: 'pages#showcase', as: 'showcase'
 
       #product controller routing 
-  get '/products/listings', to:'products#listings', as: 'listings'
+  
   resources :products
 
       #cart controller routing
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete '/cart', to: 'carts#remove_product', as: 'remove_from_cart'
 
       #profile controller routing
-  get '/profile', to: 'profiles#profile', as: 'profile'
+  resources :profiles
   get '/profile/company-details', to:'profiles#company_details', as: 'company_details'
   get '/profile/previous-orders', to:'profiles#prev_orders', as: 'prev_orders'
   get '/profile/admin', to:'profiles#admin', as: 'admin'
