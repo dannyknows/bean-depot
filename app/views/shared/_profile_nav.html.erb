@@ -1,16 +1,16 @@
 <nav style= "display: flex; justify-content: space-around; border-bottom: 1px black solid;">
   <h2><%= link_to 'previous orders', prev_orders_path %></h2>
 
-  <h2><%= link_to 'my details', profile_path %></h2>
+  <h2><%= link_to 'my details', profiles_path %></h2>
 
   <h2><%= link_to 'cart', cart_path %></h2>
 
   <% if current_user.isProducer? %>
-    <h2><%= link_to 'product listings', listings_path %></h2>
+    <h2><%= link_to 'product listings', products_path %></h2>
     <h2><%= link_to 'company details', company_details_path %></h2>
   <% end %>
 
   <% if current_user.isAdmin? %>
-     <h2><%= link_to 'ADMIN PRIVILLAGES', admin_path %></h2>
+     <h2><%= link_to 'admin dashboard', admin_path %></h2>
   <% end %>
 </nav >

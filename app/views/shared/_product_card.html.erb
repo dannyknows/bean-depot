@@ -1,14 +1,11 @@
 <div>
-[.....................]</br>
-[.....................]</br>
-[image goes here]</br>
-[.....................]</br>
-[.....................]</br>
+ <%= image_tag(product.image) if product.image.attached? %>
 </div>
 <div>
   <%= product.name %>
   <%= product.origin.country %>
-  <%= product.display_price %>
+  <%= display_price(product.price) %>
+  <p>is decaf <%= product.isDecaf %></p>
   <%= product.producer.company_name %>
   <%= product.description %>
 
@@ -17,7 +14,11 @@
     
   <% elsif page == 'cart' %>
     <%= button_to "remove from cart", remove_from_cart_path(product_id: product.id), method: :delete %> 
-
-  <% else page == 'producer' %>
-    <%= link_to "edit product listing", edit_product_path(id: product.id)%>  
   <% end %>
+
+  <% if user_signed_in? %>
+    <% if product.producer == current_user.producer || current_user.isAdmin? %>
+      <%= link_to "edit product listing", edit_product_path(id: product.id)%>  
+    <% end %>
+  <% end %>
+</div>
