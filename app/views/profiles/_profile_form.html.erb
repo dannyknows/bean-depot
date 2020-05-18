@@ -1,0 +1,13 @@
+<%= form_with model: user, url: profile_path, local: true do |form| %>
+  <%= label_tag :first_name %>
+  <%= form.text_field :fname %>
+
+  <%= label_tag :last_name %>
+  <%= form.text_field :lname %>
+
+  <%= label_tag :email%>
+  <%= form.email_field :email %>
+
+  <%= form.submit %>
+  <%= button_to 'change password', edit_user_password_path, method: :get %>
+<% end %>

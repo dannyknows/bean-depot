@@ -1,5 +1,5 @@
 <%= render 'shared/nav', page_name: "#{current_user.fname}" %>
 <%= render 'shared/profile_nav'%>
+<h1>edit your details</h1>
 
-<p>your detials are *email*</p>
-<p>chnage password</p>
+<%= render 'profile_form', user: current_user%>
