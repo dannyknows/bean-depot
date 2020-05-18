@@ -1,0 +1,24 @@
+<%= form_with model: product, local: true do |form| %>
+  <%= label_tag :name %>
+  <%= form.text_field :name %>
+
+  <%= label_tag :description %>
+  <%= form.text_field :description %>
+
+  <%= label_tag :price %>
+  <%= form.number_field :price %>
+
+  <%= label_tag :isDecaf, "decaf" %>
+  <%= form.check_box :isDecaf %>
+
+  <%= label_tag :origin_id, "origin" %>
+  <%= form.select :origin_id, [['ASIA', 1], ['AFRICA', 2], ['SOUTH AMERICA', 3], ['CENTRAL AMERICA', 4]] %>
+
+  <%= label_tag :grind_type, "grind type" %>
+  <%= form.select :grind_type, Product.grind_types.keys.map { |w| [w.humanize, w] } %>
+  
+  <%= label_tag :image %> 
+  <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+
+  <%= form.submit %>
+<% end %>
