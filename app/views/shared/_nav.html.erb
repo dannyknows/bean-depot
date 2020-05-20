@@ -1,9 +1,13 @@
 <nav style= "display: flex; justify-content: space-between; border-bottom: 1px black solid;">
-  <H1><%= link_to 'bean depot', root_path%></H1>
-  <%# <%= link_to 'profile', :profile_path %>
-  <h1><%= page_name %></h1>
+
   <div>
-    <span>search</span>
+    <H1><%= link_to 'bean depot', root_path%></H1>
+    <%= link_to "Back", :back %>
+  </div>
+
+  <h1><%= page_name %></h1>
+
+  <div>
     <span><%= link_to 'collection', root_path %></span>
       <% if user_signed_in? %>
         <span><%= link_to 'cart', cart_path %></span>
@@ -13,5 +17,5 @@
          <span><%= link_to 'login', new_user_session_path %></span>
       <% end %>
   </div>
+  
 </nav>
-<%= link_to "Back", :back %>

@@ -1,12 +1,8 @@
-<%= render 'shared/nav', page_name: 'bean depat hasi' %>
+<%= render 'shared/nav', page_name: 'bean depot' %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <div class="container">
-
-  <div>sort by: *insert dropdown*</div>
-  <div>filter *button*</div>
-
   <% @products.each do |product| %>
     <div class = "card" style= 'border: solid 1px black;'>
       <%= link_to "#{product.name}", showcase_path(product.id)%>

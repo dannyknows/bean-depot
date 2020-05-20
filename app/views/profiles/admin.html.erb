@@ -3,8 +3,12 @@
 
 <div>
   <h1>users</h1>
-  <% @users.each do |user| %>
-    <div><%= user.fname + " " + user.lname %></div>
-    <div><%= user.email %></div>
+  <% if @users %>
+    <% @users.each do |user| %>
+      <div><%= user.fname + " " + user.lname %></div>
+      <div><%= user.email %></div>
+    <% end %> 
+  <% else %>
+    <p>there aren't any users yet!</p>
   <% end %>
 </div>
