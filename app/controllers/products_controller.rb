@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:edit, :update]
+  before_action :find_product, only: [:edit, :update, :destroy]
   
   def index
     @products = Product.where(producer_id: current_user.producer)
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    Product.destroy(@product.id)
     redirect_to products_path
   end
 

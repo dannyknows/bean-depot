@@ -18,7 +18,9 @@
 
   <% if user_signed_in? %>
     <% if product.producer == current_user.producer || current_user.isAdmin? %>
-      <%= link_to "edit product listing", edit_product_path(id: product.id)%>  
+      <%= button_to "edit product listing", edit_product_path(id: product.id), method: :get %>  
+      <%= button_to "delete product listing", product_path(id: product.id), method: :delete %>  
+
     <% end %>
   <% end %>
 </div>
