@@ -15,10 +15,9 @@ class CartsController < ApplicationController
   def add_product
     CartProduct.create(
     cart_id: @cart.id,
-    product_id: params[:product_id]
+    product_id: @product
     )
     flash[:success] = "added to cart 🛒"
-    redirect_to request.referer
   end
 
   def remove_product
@@ -30,6 +29,9 @@ class CartsController < ApplicationController
   private 
 
   def find_cart
+    if current_user.carts || 
+      current_user.carts.create
+    end
     @cart = Cart.find_by(user_id: current_user.id)
   end
 

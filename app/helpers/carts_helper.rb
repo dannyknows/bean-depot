@@ -1,6 +1,6 @@
 module CartsHelper
   def display_price(int)
-    ActionController::Base.helpers.number_to_currency(int)
+    ActionController::Base.helpers.number_to_currency(int/100.00)
   end
 
   def total(cart)

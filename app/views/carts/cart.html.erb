@@ -1,14 +1,16 @@
-<% if current_user != nil %>
-  <% user_name = ", #{current_user.fname}" %>
-<% end %>
-
 <%= render 'shared/nav', page_name: 'cart' %>
 <%= render 'shared/profile_nav'%>
 
-<h1>Helocome to your cart<%= user_name %></h1>
-<h1> yiru totoal is <%= total(@current_cart) %></h1>
+<h1>Helocome to your cart <%= current_user.fname %></h1>
+
+<h1> cart total <%= total(@current_cart) %></h1>
+
+<h1><%= link_to 'pay now', "", id: "stripe" %></h1>
+
 <% @current_cart.each do |cart|%>
   <%= link_to "#{cart.product.name}", showcase_path(cart.product.id)%>
   <%= render 'shared/product_card', product: cart.product, page: 'cart' %>
 <% end %>
+
+<%= javascript_pack_tag "stripe" %>
 
