@@ -1,10 +1,17 @@
-<h2>Sign up</h2>
+ <div id = 'devise' class="container">
+  <div id = 'forms' class="container">
+    <div class='card'>
+      <h2>Sign up</h2>
 
-<%= form_with model: @producer, url: company_signup_path, local: true do |form| %>
+      <%= form_with model: @producer, url: company_signup_path, local: true do |form| %>
 
-  <%= label_tag :company_name %>
-  <%= form.text_field :comapny_name%>
+        <%= label_tag :company_name %>
+        <%= form.text_field :company_name%>
 
-  <%= form.submit 'sign up company' %>
-<% end %>
+        <%= form.submit 'sign up company' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 

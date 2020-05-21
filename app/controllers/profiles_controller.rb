@@ -1,13 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user
-  
 
   def company_details
   end
 
   def edit
-   
   end
 
   def update
@@ -21,7 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   private
-  
+
   def user_params
     user_params = params.require(:user).permit(:fname, :lname, :email)
   end

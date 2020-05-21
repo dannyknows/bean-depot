@@ -1,0 +1,11 @@
+.container {
+  #showcase {
+    margin-top: 20px;
+    justify-self: center; 
+    align-self: center;
+    height: 80vh;
+    .card {
+      height:auto;
+    }
+  }
+}

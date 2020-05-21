@@ -1,8 +1,13 @@
 <%= render 'shared/nav', page_name: "product listings" %>
 <%= render 'shared/profile_nav'%>
-
-<h1>your products listings sir</h1>
-<%= link_to 'create new product listing', new_product_path %>
-<% @products.each do |product| %>
-  <%= render 'shared/product_card', product: product, page: 'producers' %>
-<% end %>
+<div class="container"> 
+  <div id="showcase">
+      <p style= 'align-self: center;'><%= link_to 'Create new product listing', new_product_path %></p>
+      <% @products.each do |product| %>
+        <div class="card">
+          <%= render 'shared/product_card', product: product, page: 'producers' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

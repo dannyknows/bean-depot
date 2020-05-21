@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: [:edit, :update, :destroy]
-  
+
   def index
     @products = Product.where(producer_id: current_user.producer)
   end
@@ -9,9 +9,12 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def create 
-    @product = current_user.producer.products.create!(product_params)
-    redirect_to showcase_path(@product.id)
+  def create
+    if (!product_params[:name]) == ""
+      @product = current_user.producer.products.create!(product_params)
+      redirect_to showcase_path(@product.id)
+    end
+    redirect_to products_path
   end
 
   def edit
@@ -30,11 +33,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    product_params = params.require(:product).permit(:name, :description, :price, :origin_id, :grind_type, :isDecaf, :image)
+    params.require(:product).permit(:name, :description, :price, :origin_id, :grind_type, :isDecaf, :image)
   end
 
   def find_product
     @product = Product.find_by(id: params[:id])
   end
-  
 end

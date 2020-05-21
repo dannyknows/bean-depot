@@ -1,6 +1,10 @@
 <%= render 'shared/nav', page_name: "product listings" %>
 <%= render 'shared/profile_nav'%>
-<h1 style="font-size: 5em"> create new produc 🗣🌐</h1>
-<h1> render new form here</h1>
-
-<%= render "product_form", product: @product %>
+<div class="container">
+  <div id="showcase">
+    <div class="card">
+      <h1>Create new product</h1>
+      <%= render "product_form", product: @product %>
+    </div>
+  </div>
+</div>

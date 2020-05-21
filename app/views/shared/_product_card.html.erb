@@ -2,12 +2,14 @@
  <%= image_tag(product.image) if product.image.attached? %>
 </div>
 <div>
-  <%= product.name %>
-  <%= product.origin.country %>
-  <%= display_price(product.price) %>
-  <p>is decaf <%= product.isDecaf %></p>
-  <%= product.producer.company_name %>
-  <%= product.description %>
+  <div><%= display_price(product.price) %></div>
+  <% if product.isDecaf %>
+    <div>Is Decaf ✅</div>
+  <% end %>
+  <div>Name: <%= product.name %></div>
+  <div>Origin: <%= product.origin.country %></div>
+  <div>Producer: <%= product.producer.company_name %></div>
+  <div>Description: <%= product.description %></div>
 
   <% if page == 'home/show' %>
     <%= button_to "Add to cart", add_to_cart_path(product_id: product.id)  %>

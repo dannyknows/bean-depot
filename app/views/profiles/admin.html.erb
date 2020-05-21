@@ -1,14 +1,18 @@
 <%= render 'shared/nav', page_name: "product listings" %>
 <%= render 'shared/profile_nav'%>
 
-<div>
-  <h1>users</h1>
-  <% if @users %>
-    <% @users.each do |user| %>
-      <div><%= user.fname + " " + user.lname %></div>
-      <div><%= user.email %></div>
-    <% end %> 
-  <% else %>
-    <p>there aren't any users yet!</p>
-  <% end %>
+<div class="container">
+  <div id="showcase">
+      <h1>users</h1>
+      <% if @users %>
+        <% @users.each do |user| %>
+          <div class="card">
+            <div><%= user.fname + " " + user.lname %></div>
+            <div><%= user.email %></div>
+          </div>
+        <% end %> 
+      <% else %>
+        <p>there aren't any users yet!</p>
+      <% end %>
+  </div>
 </div>

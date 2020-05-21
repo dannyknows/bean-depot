@@ -1,8 +1,8 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:webhook]
+  before_action :current_cart
 
   def get_stripe_id
-    @products = current_user.carts.find_by(fulfilled: false).products
+    @products = @cart.products
     line_items = @products.map do |product|
       {
         name: product.name,
@@ -21,18 +21,20 @@ class PaymentsController < ApplicationController
           listing_id: current_user.fname
         }
       },
-      success_url: "#{root_url}payments/success?userId=#{current_user.id}&cartId=#{@current_}",
+      success_url: "#{root_url}payments/success?user=#{current_user.id}&cartId=#{@cart.id}",
       cancel_url: "#{root_url}/cart"
     ).id
     render :json => { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 
   def success
-  end
-
-  def webhook
-    p params
+    flash[:success] = "👏 purchase was successful"
+    @cart.update(fulfilled: true)
+    redirect_to root_path
   end
 
   private
+  def current_cart
+    @cart = Cart.find_by(user_id: current_user.id, fulfilled: false)
+  end
 end

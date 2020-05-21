@@ -1,24 +1,40 @@
-<%= form_with model: product, local: true do |form| %>
-  <%= label_tag :name %>
-  <%= form.text_field :name %>
+<div>
+  <%= form_with model: product, local: true do |form| %>
+    <div>
+      <%= label_tag :name %>
+      <%= form.text_field :name %>
+    </div>
 
-  <%= label_tag :description %>
-  <%= form.text_field :description %>
+    <div>
+      <%= label_tag :description %>
+      <%= form.text_field :description %>
+    </div>
 
-  <%= label_tag :price %>
-  <%= form.number_field :price %>
+    <div>
+      <%= label_tag :price %>
+      <%= form.number_field :price %>
+    </div>
 
-  <%= label_tag :isDecaf, "decaf" %>
-  <%= form.check_box :isDecaf %>
+    <div>
+      <%= label_tag :isDecaf, "decaf" %>
+      <%= form.check_box :isDecaf %>
+    </div>
 
-  <%= label_tag :origin_id, "origin" %>
-  <%= form.select :origin_id, [['ASIA', 1], ['AFRICA', 2], ['SOUTH AMERICA', 3], ['CENTRAL AMERICA', 4]] %>
+    <div>
+      <%= label_tag :origin_id, "origin" %>
+      <%= form.select :origin_id, [['ASIA', 1], ['AFRICA', 2], ['SOUTH AMERICA', 3], ['CENTRAL AMERICA', 4]] %>
+    </div>
 
-  <%= label_tag :grind_type, "grind type" %>
-  <%= form.select :grind_type, Product.grind_types.keys.map { |w| [w.humanize, w] } %>
-  
-  <%= label_tag :image %> 
-  <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+    <div>
+      <%= label_tag :grind_type, "grind type" %>
+      <%= form.select :grind_type, Product.grind_types.keys.map { |w| [w.humanize, w] } %>
+    </div>
+    
+    <div>
+      <%= label_tag :image %> 
+      <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+    </div>
 
-  <%= form.submit %>
-<% end %>
+    <%= form.submit %>
+  <% end %>
+</div>

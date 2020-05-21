@@ -1,13 +1,17 @@
 <%= render 'shared/nav', page_name: 'bean depot' %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-<div class="container">
-  <% @products.each do |product| %>
-    <div class = "card" style= 'border: solid 1px black;'>
-      <%= link_to "#{product.name}", showcase_path(product.id)%>
-      <%= render 'shared/product_card', product: product, page: 'home/show' %>
-    </div>
+  <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
   <% end %>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <% @products.each do |product| %>
+      <div class = "card col-3" >
+        <%= link_to "#{product.name}", showcase_path(product.id)%>
+        <%= render 'shared/product_card', product: product, page: 'home/show' %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,12 +1,16 @@
 class PagesController < ApplicationController
-  # load_and_authorize_resource
+  before_action :get_products
 
   def index
-    @products = Product.all
-  end
-  
-  def showcase
-    @product = Product.find_by(id: params[:id])
   end
 
+  def showcase
+   @product = @products.find_by(id: params[:id])
+  end
+
+  private 
+  
+  def get_products
+    @products = Product.all
+  end
 end

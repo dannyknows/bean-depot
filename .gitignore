@@ -37,4 +37,4 @@ yarn-debug.log*
 app/.DS_Store
 .DS_Store
 .vscode/
-config/credentials.yml.enc
+
