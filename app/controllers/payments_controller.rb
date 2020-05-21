@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
     session_id = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
-      line_items: [line_items],
+      line_items: line_items,
       payment_intent_data: {
         metadata: {
           user_id: current_user.id,
@@ -24,18 +24,15 @@ class PaymentsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&cartId=#{@current_}",
       cancel_url: "#{root_url}/cart"
     ).id
-    render :json => {id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key)}
+    render :json => { id: session_id, stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key) }
   end
 
-
   def success
-
-
   end
 
   def webhook
-      p params
+    p params
   end
+
   private
 end
-
